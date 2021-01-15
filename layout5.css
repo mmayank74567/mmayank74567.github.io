@@ -1,0 +1,128 @@
+/* remove all default padding and margins */
+* {
+padding: 0;
+margin: 0
+}
+
+/* set  fonts default fore and background colors */
+body {
+max-width: 1200px;
+margin: 0 auto;
+color: #0e0e0e;
+background: #CC8F8F;
+font-family:arial, verdana, tahoma, times new roman, serif; 
+font-style: normal;
+font-weight: normal
+}
+
+/* define size of footer div and add color */
+div.cap {
+width: 100%;
+float: left;
+margin: 1% 0;
+background: #990000;
+border-radius:20px 20px 0 0;
+box-shadow: 5px 5px 10px #0e0e0e
+}
+
+/* set size of main division */
+div.main {
+width: 100%;
+float: left;
+background: #ffffff;
+box-shadow: 5px 5px 10px #0e0e0e
+}
+
+/* define size of left division and position */
+div.left {
+width: 35%;
+margin: 0 0 0 5%;
+float: left;
+}
+
+/* define size of right div and position */
+div.right {
+width: 55%;
+margin: 0 5% 0 0;
+float: left;
+
+}
+
+/* define size of footer div and add color */
+div.footer {
+width: 100%;
+float: left;
+margin: 1% 0;
+background: #990000;
+border-radius: 0 0 20px 20px;
+box-shadow: 5px 5px 10px #0e0e0e
+}
+
+
+/* Liquify images */
+img {
+max-width: 100%
+}
+
+
+img.header-image {
+display: block;
+margin: 2% auto;
+border: none;
+border-radius: 10px;
+box-shadow: 4px 4px 8px #0e0e0e
+}
+
+
+
+/* set font properties of h1 tag in right div */
+div.right h1 {
+font-size:28px;
+text-align:center;
+color:#990000;
+margin: 2% 0
+}
+
+/* set font properties of paragraph tag in right div */
+div.right p {
+font-size: 16px;
+padding: 2% 4% ;
+text-indent: 16px
+}
+
+/* set font properties of paragraph tag and links in left div */
+div.left p {
+font-size: 16px;
+padding: 1% 10%;
+text-align: center;
+
+}
+
+/* define color of links in left div and remove underline */
+
+div.left a {
+/* remove underline */
+text-decoration:none; 
+font-weight: bold;
+color:#990100;
+line-height: 150%
+}
+
+/* define hover or rollover color for links in left div */
+div.left a:hover {
+color:#0e0e0e;
+text-decoration: underline
+}
+
+/* define font properties for p tag in footer */
+div.footer p, div.cap p {
+font-size: 16px;
+text-align:center;
+color:#efefef;
+padding: .5% 0;
+text-shadow: 2px 2px 4px #0e0e0e
+}
+
+
+
+
