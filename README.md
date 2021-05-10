@@ -1,1 +1,2 @@
-Samir Gadre's acadmic webpage. Source code from Jon Barron's website: https://jonbarron.info/
+Personal Webpage of Mayank Mishra. 
+Source code from Jon Barron's website: https://jonbarron.info/
