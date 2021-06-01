@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Food</title>
+    <style>
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 33.3%;
+        }
+
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .myDiv {
+            border: 5px outset black;
+            background-color: lightgrey;
+            text-align: center;
+        }
+
+        .food {
+            max-width: 75%;
+        }
+    </style>
+
+    <meta name="author" content="Mayank Mishra">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="images/seal_icon.ico">
+</head>
+
+<body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <tbody>
+            <tr style="padding:0px">
+                <td style="padding:0px">
+                    <div class="myDiv">
+                        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                            <tbody>
+                                <tr style="padding:0px">
+                                    <td style="padding:2.5% 2.5% 0% 2.5%;width:63%;vertical-align:middle">
+                                        <p style="text-align:center">
+                                            <name>Detecting food items with possible allergen using deep learning</name>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="padding:0px">
+                                    <td style="padding:2.5%;width:63%;vertical-align:middle">
+                                        <div class="row">
+                                            <div class="column" style="width:33.3%; text-align: center;font-size: 20px;"><b>Mayank Mishra</b></div>
+                                            <div class="column" style="width:33.3%; text-align: center;font-size: 20px;">Tanmay Sarkar</div>
+                                            <div class="column" style="width:33.3%; text-align: center;font-size: 20px;">Tanupriya Choudhury</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr style="padding:0px">
+                                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                                    <p style="text-align:center">
+                                        <name>Project Overview</name>
+                                    </p>
+                                    <hr style="height:.125em;border-width:0;color:gray;background-color:gray">
+                                    <p style="text-align: justify; font-size: 18px;">Allergies triggered by food are prevalent amongst people. In some severe cases, allergies can trigger a life-threatening reaction. However, such an event can be avoided by being knowledgeable about possible allergens present in food items. Most common intolerances are caused by food items with compounds like lactose, histamine, caffeine, gluten, lactose, and salicylate. Our project is a step forward in building a robust object detection model to recognize food items with these compounds and to prevent a possible allergic reaction. </p>
+                                    <p style="text-align: center">
+                                    <figure style="text-align: center"><a target="_blank" href="images/food.png"><img src="images/food.png" alt="Image classification" style="width:80%"></a>
+                                        <figcaption><i>Figure 1: Common allergy causing compounds</i></figcaption>
+                                    </figure>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr style="padding:0px">
+                                <td style="padding:0%;width:63%;vertical-align:middle">
+                                    <p style="text-align:left">
+                                        <name style="font-size: 25px;">Dataset preparation</name>
+                                    </p>
+                                    <hr style="height:.125em;border-width:0;color:gray;background-color:gray">
+                                    <ul>
+                                        <li>
+                                            <p style="text-align: justify; font-size: 18px;">We have modelled our own dataset for the project. Extensive research was performed to finalize a list of food categories that are highly rich in the compounds mentioned in Figure 1 and are commonly used on a daily basis. </p>
+                                        </li>
+
+                                        <li>
+                                            <p style="text-align: justify; font-size: 18px;">We used various search engines (Google, Bing, etc.) to crawl and look for suitable images using javascript queries for each food item from the list created. The images with incomplete RGB channels were removed, and the images collected from different search engines were compiled.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <p style="text-align: justify; font-size: 18px;">After merging, a number of duplicate images were encountered. We implemented image hashing to conduct the detection of such duplicate images and deleted the extra ones.
+                                            </p>
+                                            <div id='end_user_anim' class='hidden'>
+                                                <p style="text-align: center">
+                                                <figure style="text-align: center"><a target="_blank" href="images/hashing.gif"><img src="images/hashing.gif" class=gif data-mode="video"></a>
+                                                    <figcaption><i>Figure 2: Removing duplicates using hashing</i></figcaption>
+                                                </figure>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p style="text-align: justify; font-size: 18px;">When downloading images from search engines, many images are irrelevant to the purpose, especially the ones with text in them. We deployed the EAST text detector (based on the paper <a href="https://arxiv.org/abs/1704.03155" , target="_blank" style="font-size: 18px">EAST: An Efficient and Accurate Scene Text Detector</a>) to segregate such images.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p style="text-align: justify; font-size: 18px;">Finally, we conducted a comprehensive manual inspection to ensure the relevancy of images in the dataset.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr style="padding:0px">
+                                <td style="padding:0%;width:63%;vertical-align:middle">
+                                    <p style="text-align:left">
+                                        <name style="font-size: 25px;">Object Detection</name>
+                                    </p>
+                                    <hr style="height:.125em;border-width:0;color:gray;background-color:gray">
+
+
+                                    <p style="text-align: justify; font-size: 18px;">We have utilized various object detection algorithms to recognize food items with potential allergens from natural scene images. As a baseline, we have deployed the two-stage object detection algorithms from the R-CNN model family. The models propose a set of regions of interest by select search or regional proposal network, and then classifiers predict by processing the region candidates. </p>
+
+                                    <p style="text-align: justify; font-size: 18px;">Further, we have studied the performance of various one-stage object detection algorithms on our dataset. This includes YOLO, which is able to do inference super-fast, by predicting over a limited number of bounding boxes, Single Shot Detectors (SSD), which uses convolutional neural network’s pyramidal feature hierarchy for efficient detection of objects of various sizes, and RetinaNet, which is based on featurized image pyramid and the use of focal loss.
+                                    </p>
+
+                                    <hr style="height:.125em;border-width:0;color:gray;background-color:gray">
+
+
+                                </td>
+                            </tr>
+                            <tr style="padding:0px">
+                                <td style="padding:0%;width:63%;vertical-align:middle">
+                                    <p style="text-align: center"><i>The dataset, code and paper will be released soon</i></p>
+                                </td>
+                        </tbody>
+                    </table>
+
+
+
+
+                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:0px">
+                                    <p style="text-align:right;font-size:small;">
+                                        Webpage last updated: June, 2021<br>
+
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+    </table>
+</body>
+
+</html>
